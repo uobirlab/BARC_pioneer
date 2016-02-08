@@ -1,0 +1,62 @@
+#For full documentation of the parameters in this file, and a list of all the
+#parameters available for TrajectoryPlannerROS, please see
+#http://www.ros.org/wiki/base_local_planner
+
+# If I don't know what the acceleration limits of a robot are, I'll take the time to write a script that commands max #translational and rotational velocity to the motors for some period of time, look at the reported velocity from odometry #assuming the odometry gives a reasonable estimate of this), and derive the acceleration limits from that. Setting these #parameters reasonably often saves me a lot of time later.
+
+
+
+DWAPlannerROS:
+
+  #dwa: true #use the Dynamic Window Approach
+
+  global_frame_id: /odom #Should be set to the same frame as the local costmap's global frame
+
+  #Set the acceleration limits of the robot in meters/sec^2  
+  acc_lim_x: 0.25
+  acc_lim_y: 0.0
+  acc_lim_th: 1.5 
+
+  #Set the velocity limits of the robot
+  min_vel_y: 0.0
+  max_vel_y: 0.0
+  max_vel_x: 0.7
+  min_vel_x: 0.2
+  trans_stopped_vel: 0.2
+  max_trans_vel: 0.7
+  min_trans_vel: 0.2
+  max_rot_vel: 1.0
+  min_rot_vel: 0.1
+  min_in_place_vel_theta: 0.3
+  min_in_place_rotational_vel: 0.3
+  escape_vel: -0.1
+  
+  holonomic_robot: false
+
+  #Set the tolerance on achieving a goal. With bad lacalazation put hight tolerence.
+  xy_goal_tolerance: 0.2
+  yaw_goal_tolerance: 0.1 
+
+  #Forward Simulation Parameters
+  #We'll configure how long and with what granularity we'll forward simulate trajectories
+  sim_time: 1.5 #1.7 # 2 * (goal_tolerance) >  ( min_vel * sim_time ) ... ore else the robot wont move
+  sim_granularity: 0.025
+
+  #The number of samples to use when exploring the x and theta velocity space
+  vx_samples: 12 # for DWA planner 8 - 15 depending on the processing power. This allows for non-circular curves. 
+  vtheta_samples: 20
+
+
+  #Parameters for scoring trajectories 
+  publish_cost_grid_pc: true  # publish the cost used when planning as pointcloud2 at <name>/cost_cloud topic
+  meter_scoring: true
+  forward_point_distance: 0.5 # default 0.325. The distance from the center point of robot to place an additional scoring point
+  path_distance_bias: 0.7#32 #0.7 #weight on how much should stay close to path 
+  goal_distance_bias: 0.75#38 #0.75 #0.8 #weight on how much should attempt to reach is local goal, also controls speed.
+  occdist_scale: 0.01 #weight on how much should attempt to avoid obstacles (in my experience leave like that!)
+
+ 
+
+
+
+

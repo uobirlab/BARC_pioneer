@@ -1,0 +1,50 @@
+<launch>
+
+  <!-- RosAria -->  
+  <!-- run RosAria pioneer drivers -->
+  <include file="$(find dora_2dnav)/launch/rosaria.launch"/>
+
+
+<!-- joy node -->
+  <node respawn="true" pkg="joy" type="joy_node" name="joy_node" >
+    <param name="dev" type="string" value="/dev/input/js0" />
+    <param name="deadzone" value="0.12" />
+    <param name="autorepeat_rate" type="double" value="10.0" />
+  </node>
+<!-- Axes -->
+  <param name="linear_axis" value="1" type="int"/>  
+  <param name="angular_axis" value="0" type="int"/>
+  <!--param name="linear_speed_max" value="0.4" type="double"/>
+  <param name="angular_speed_max" value="0.6" type="double"/-->
+  
+
+  <!-- teleop and safety stuff -->
+<node pkg="mixed_initiative_teleop" type="mixed_initiative_teleop" name="dora_teleop" output="screen">
+</node>
+
+<node pkg="mixed_initiative_controller" type="mixed_initiative_controller" name="mi_controller" output="screen">
+</node>
+
+  <!-- tf transforms -->
+   <include file="$(find dora_2dnav)/launch/tf.launch"/>
+
+  
+  <!-- SICK laser -->
+ <node name="sick_tim551_2050001" pkg="sick_tim" type="sick_tim551_2050001" respawn="false" output="screen">
+   <param name="frame_id" type="string" value="base_laser"/>
+ </node>
+
+
+   <!-- gmapping -->
+  <!-- SLAM algorithm -->    
+ <include file="$(find dora_2dnav)/launch/slam_gmapping.launch"/>
+
+<!-- Navigation stuff / move_base -->
+<include file="$(find dora_2dnav)/launch/move_base_mapping.launch"/>
+
+
+<!-- RVIZ Interface -->
+<node pkg="rviz" type="rviz" name="rviz"
+args="-d $(find barc_rockin_launch)/rviz_cfg/rviz_cfg.rviz"/>
+
+</launch>

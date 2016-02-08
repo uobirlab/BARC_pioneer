@@ -1,0 +1,31 @@
+<launch>
+
+
+  <!-- MAP server to load the predefined map 
+  <arg name="map_file" default="$(find barc_rockin_launch)/map/final_map.yaml"/>-->
+<arg name="map_file" default="$(find barc_rockin_launch)/map/LisbonFinal.yaml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" output="log" />
+  
+  <!-- launch AMCL-->
+  <include file="$(find dora_2dnav)/launch/amcl_node.launch"/> 
+
+  <!-- Navigation stuff / move_base-->
+  <include file="$(find dora_2dnav)/launch/move_base_amcl.launch"/> 
+
+  <!-- RVIZ Interface -->
+  <!--node pkg="rviz" type="rviz" name="rviz" args="-d $(find barc_rockin_launch)/rviz_cfg/rviz_cfg.rviz" respawn="true"/-->
+
+  <!-- Move PTU -->
+<param name="pan" value="0"/>
+	<param name="tilt" value="-0.7"/>
+  <!--node pkg="move_ptu" type="MovePTU.py" name="movePTU" output="screen"/-->
+
+<node pkg="dora_nav_goals" type="dora_nav_goals_node" name="nav_goals" output="screen"/>
+
+ <!--
+  <param name="ReconfigFile" value="$(find dora_2dnav)/config/reset_params.yaml"/>
+  <param name="GraphFile" value="$(find barc_rockin_launch)/super_planner/test.txt"/>
+  <node pkg="barc_super_planner" type="barc_super_planner.py" name="barc_sp" output="screen"/>
+-->
+  
+</launch>

@@ -1,0 +1,30 @@
+# Author: 
+# Andrzej Pronobis
+
+include "./shared/dora.inc"
+include "./shared/map.inc"
+
+# Size of a pixel in meters
+resolution 0.05
+
+# Configuration of the GUI window
+window
+( 
+  size [ 2000.000 1000.000 ] 
+  scale 40
+)
+
+# Map
+floorplan
+(
+  bitmap "./maps/cas_floor7_big_walls.jpg"
+  size [38.95 12.6 1.5]
+)
+
+# Robot
+dora 
+(
+  name "dora"
+  pose [0 0 0 0]
+  color "red"
+)

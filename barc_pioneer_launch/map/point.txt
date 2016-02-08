@@ -1,0 +1,204 @@
+door enter
+
+pose: 
+  pose: 
+    position: 
+      x: -3.36099417959
+      y: 5.82356380844
+      z: 0.0
+    orientation: 
+      x: 0.0
+      y: 0.0
+      z: 0.688668940272
+      w: 0.725075920649
+
+
+door bedroom
+
+pose: 
+    position: 
+      x: 0.226002767703
+      y: 3.38278289196
+      z: 0.0
+    orientation: 
+      x: 0.0
+      y: 0.0
+      z: -0.0308813958352
+      w: 0.999523055958
+
+
+door exit
+
+pose: 
+    position: 
+      x: 0.882176384786
+      y: -2.51231188355
+      z: 0.0
+    orientation: 
+      x: 0.0
+      y: 0.0
+      z: 0.992528623828
+      w: 0.122012011217
+
+kitchen
+
+pose: 
+    position: 
+      x: 0.485067644168
+      y: -0.240134250322
+      z: 0.0
+    orientation: 
+      x: 0.0
+      y: 0.0
+      z: 0.621069737124
+      w: 0.783755307241
+
+
+bedroom
+
+pose: 
+    position: 
+      x: 3.72417484058
+      y: 3.63717665004
+      z: 0.0
+    orientation: 
+      x: 0.0
+      y: 0.0
+      z: 0.912934001151
+      w: 0.408107227995
+
+
+door/enter
+
+ pose: 
+    position: 
+      x: -2.6388439367
+      y: 5.94917381599
+      z: 0.0
+    orientation: 
+      x: 0.0
+      y: 0.0
+      z: 0.937807140079
+      w: 0.347156690871
+
+Marko's bedroom door
+
+goal.pose.position.x = -2.63;
+        goal.pose.position.y = 5.94;
+        goal.pose.position.z = 0;
+        goal.pose.orientation.x = 0;
+        goal.pose.orientation.y = 0;
+        goal.pose.orientation.z = 0.93;
+        goal.pose.orientation.w = 0.34;
+
+
+
+
+Lenk's Hallway_one
+
+pose: 
+    position: 
+      x: -2.86384080555
+      y: 3.42866819159
+      z: 0.0
+    orientation: 
+      x: 0.0
+      y: 0.0
+      z: 0.593930456862
+      w: 0.804516384178
+
+
+Livingroom_one:
+
+pose: 
+  pose: 
+    position: 
+      x: -2.26670924124
+      y: 2.41099064769
+      z: 0.0
+    orientation: 
+      x: 0.0
+      y: 0.0
+      z: -0.621376874489
+      w: 0.783511824959
+
+
+livingroom_two
+
+pose: 
+    position: 
+      x: 0.0997448940076
+      y: 0.0169739343333
+      z: 0.0
+    orientation: 
+      x: 0.0
+      y: 0.0
+      z: -0.999951944898
+      w: 0.00980346344892
+
+
+
+kitchen_one
+
+pose: 
+    position: 
+      x: 1.88383474778
+      y: -0.189142392515
+      z: 0.0
+    orientation: 
+      x: 0.0
+      y: 0.0
+      z: 0.606301721984
+      w: 0.795234696124
+
+
+kitchen_two
+
+ pose: 
+    position: 
+      x: 0.547072272381
+      y: -1.57681359606
+      z: 0.0
+    orientation: 
+      x: 0.0
+      y: 0.0
+      z: -0.264430384346
+      w: 0.964404775929
+
+bedroom_two
+
+pose: 
+    position: 
+      x: 4.63869618383
+      y: 5.81645592567
+      z: 0.0
+    orientation: 
+      x: 0.0
+      y: 0.0
+      z: 0.993619296515
+      w: 0.112786052297
+
+
+bedroom_two (door risk)
+
+pose: 
+    position: 
+      x: 1.95337015129
+      y: 5.66350452212
+      z: 0.0
+    orientation: 
+      x: 0.0
+      y: 0.0
+      z: 0.0647536760166
+      w: 0.997901278405
+
+
+
+
+
+
+
+
+
+
+

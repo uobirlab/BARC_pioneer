@@ -1,0 +1,9 @@
+<launch>
+ <include file="$(find ptu46)/launch/ptu46_actions.launch"/>
+<param name="pan" value="0"/>
+	<param name="tilt" value="-0.7"/>
+  <node pkg="move_ptu" type="MovePTU.py" name="movePTU" output="screen">
+	
+</node>
+
+</launch>

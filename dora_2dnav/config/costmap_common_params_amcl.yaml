@@ -1,0 +1,29 @@
+#This file contains common configuration options for the two costmaps used in the navigation stack for more details on the parameters in this file, and a full list of the parameters used by the costmaps, please see http://www.ros.org/wiki/costmap_2d
+
+#Set map type
+map_type: costmap 
+
+#Obstacle marking parameters
+obstacle_range: 4 #maximum range sensor reading that will result in an obstacle being put into the costma(meters)
+raytrace_range: 8 #range in meters at which to raytrace out obstacles from the map using sensor data. This can be over-ridden on a per-sensor basis.
+
+transform_tolerance: 0.2
+
+#The footprint of the robot 
+footprint: [ [0.15, 0.15], [0.15, -0.15], [-0.15, -0.15], [-0.15, 0.15] ]
+robot_radius: 0.15
+
+#Cost function parameters
+inflation_radius: 0.4
+
+#Configuration for the sensors/topics that the costmap will use to update a map
+observation_sources: scan kinect scan_low
+
+scan: {sensor frame: base_laser, data_type: LaserScan, topic: scan, expected_update_rate: 0.2, marking: true, clearing: true}
+
+scan_low: {sensor frame: hokuyo_laser, data_type: LaserScan, topic: /hokuyo/scan, expected_update_rate: 0.3, marking: true, clearing: true}
+
+
+kinect: {sensor frame: camera_link, data_type: PointCloud2, topic:  /voxel_grid_kinect/output , observation_persistence: 0.0, marking: true, clearing: true, min_obstacle_height: 0.40, max_obstacle_height: 1.5}
+
+

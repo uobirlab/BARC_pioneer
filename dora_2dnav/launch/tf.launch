@@ -1,0 +1,20 @@
+<launch> 
+
+    <!-- tf transformation -->
+    <!-- args ="x y z qx qy qz frame_id child_frame_id period_in_ms" -->
+ <!--<node pkg="tf" type="static_transform_publisher" name="base_link_to_laser2" args="0.15 0 0.27 0 0 0 base_link base_laser_link 66.6" />
+    Laser transformation 
+    <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" args="0.15 0 0.27 0 0 0 base_link base_laser 66.6" />-->
+
+
+    <!-- Kinect transformation -->
+    <node pkg="tf" type="static_transform_publisher" name="base_camera_link" args="0.0 0.0 0.01 0.0 0.0 0.0 /ptu_mount /openni_camera 100"/>
+    <node pkg="tf" type="static_transform_publisher" name="camera_frame_link" args="0 0 0 0 0 0 /openni_camera /openni_depth_frame 100"/>
+    <node pkg="tf" type="static_transform_publisher" name="camera_frame_link_link" args="0 0 0 0 0 0 /openni_camera /camera_link 100"/>
+    <!--node pkg="tf" type="static_transform_publisher" name="depth_optical_frame_link" args="0 0 0 0 0 0 /openni_camera /camera_depth_optical_frame 100"/-->
+<node pkg="tf" type="static_transform_publisher" name="hokuyo_laser_link" args="-0.38 0 0 3.1415926 0 0 /base_laser /hokuyo_laser 100"/>-->
+
+    <!-- Marker transformation -->
+    <node pkg="tf" type="static_transform_publisher" name="base_marker_link" args="-0.40628 0.026683 1.2638 0.025657 0.016347 1.2638 /base_link /marker 10" />
+
+</launch>
