@@ -20,13 +20,13 @@
   <!-- Robot model -->
   <include file="$(find rocs_simulation)/launch/pioneer3dx_urdf.launch"/>
 
-<!-- SICK laser -->
+<!-- SICK laser 
   <node name="sick_tim551_2050001" pkg="sick_tim" type="sick_tim551_2050001" respawn="false" output="screen">
     <param name="frame_id" type="string" value="base_laser"/>
     <param name="min_ang" type="double" value="-2"/>
     <param name="max_ang" type="double" value="2"/>
     <param name="intensity" type="bool" value="true"/>	
-  </node>
+  </node>-->
 
 <!-- Hokuyo laser -->
 <node name="hokuyo_node" pkg="hokuyo_node" type="hokuyo_node" respawn="true" output="screen" ns="hokuyo">
@@ -40,16 +40,16 @@
 
   </node>
 
-  <!-- kinect -->
+  <!-- kinect 
   <include file="$(find openni_launch)/launch/openni.launch"/>
-  <param name="camera/driver/depth_registration" value="True" />
+  <param name="camera/driver/depth_registration" value="True" />-->
   
   <!--include file="$(find skeleton_markers)/launch/markers.launch"/-->
   
-  <!--  Voxel Grid stuff -->
- <node pkg="nodelet" type="nodelet" name="pcl_manager" args="manager" output="screen" />
+  <!--  Voxel Grid stuff 
+ <node pkg="nodelet" type="nodelet" name="pcl_manager" args="manager" output="screen" />-->
 
-  <!-- Run a VoxelGrid filter to clean NaNs and downsample the data -->
+  <!-- Run a VoxelGrid filter to clean NaNs and downsample the data 
   <node pkg="nodelet" type="nodelet" name="voxel_grid_kinect" args="load pcl/VoxelGrid pcl_manager" output="screen">
     <remap from="~input" to="/camera/depth_registered/points" />
     <rosparam>
@@ -59,7 +59,7 @@
       filter_limit_negative: False
       leaf_size: 0.01
     </rosparam>
-  </node>
+  </node>-->
 
   <!-- PTU -->
   <!--include file="$(find ptu46)/launch/ptu46_actions.launch"/-->
