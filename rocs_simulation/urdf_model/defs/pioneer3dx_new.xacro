@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor" xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller" xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface" xmlns:xacro="http://ros.org/wiki/xacro" name="pioneer3dx">
 
-
+  <xacro:macro name="default_inertial">
   <xacro:include filename="$(find rocs_simulation)/urdf_model/defs/pioneer3dx_wheel.xacro"/>
 
 <!-- Chassis -->
@@ -257,7 +257,6 @@
 <!-- MY EDIT -->
 <xacro:macro name="easy_cylinder" params="name radius length *vorigin *corigin *material">
 	<link name="${name}">
-		<xacro:default_inertia/>
 	<visual>
 		<xacro:insert_block name="vorigin"/>
 		<geometry>
@@ -275,7 +274,6 @@
 </xacro:macro>
 <xacro:macro name="easy_box" params="name size *vorigin *corigin *material">
 	<link name="${name}">
-		<xacro:default_inertia/>
 		<visual>
 			<xacro:insert_block name="vorigin"/>
 			<geometry>
